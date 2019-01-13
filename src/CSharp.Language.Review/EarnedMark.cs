@@ -9,34 +9,6 @@ using System.Threading.Tasks;
 // place our programmer-defined data types
 namespace CSharp.Language.Review
 {
-    // the name space plus the class name is whats called
-    // a fully qualified class name
-    // the fully qualified class name for program is 
-    // CSharp.Language.Review.Program
-
-        //a static field initialized to a new Random
-      //-private static Random rnd = new Random();
-
-        // Main() is the entry point
-     //public static void Main(string[] args)
-        
-        //this field is acting as a backing store
-        // for the students property
-    //private list<Student>
-
-       // this property provides controlled access
-       // to the data in the backing store (the field)
-    //public list<Student>
-
-        //this is a constructor
-        // the job of a constructor is to ensure
-        // that all the fields/properties
-        // have meaninful values
-    //public Program(string[] studentNames)
-     
-        //the body of the Main() method
-        //acts as the driver of ,y application
-    //Program app = new Program(args);
     
     public class EarnedMark : WeightedMark
     {
@@ -66,7 +38,14 @@ namespace CSharp.Language.Review
             : base(name, weight)
         {
             if (possible <= 0)
-                throw
+                throw new Exception("Invalid possible marks");
+            Possible = possible;
+            Earned = earned;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0} ({1})\t - {2}% ({3}/{4}) \t- Weighted Mark {5}", Name, Weight, Percent, Earned, Possible, WeightedPercent);
         }
     }
 }
